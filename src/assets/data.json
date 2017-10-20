@@ -1,0 +1,26 @@
+{
+  "departments":["Electrical" , "Civil" , "Mechanical"],
+  "quizes":["PST Phase" , "Interview Phase" , "Technical Phase"],
+  "user": {
+    "form": [{
+      "type":"text",
+      "value":"username"
+    },{
+      "type":"number",
+      "value":"age"
+    },{
+      "type":"email",
+      "value":"email"
+    },{
+      "type":"password",
+      "value":"password"
+    },{
+    	"type":"text",
+    	"value":"phone",
+      "depantant":"email"
+    },{
+      "type":"submit",
+      "value":"submit"
+    }]
+  }
+}

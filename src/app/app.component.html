@@ -1,3 +1,71 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+
+      
+      <button class="btn btn-primary start-game" (click)="startGame()">Click To Start</button>
+
+      <!-- School Select Box -->
+      <ng-template [ngIf]="schoolClicked">
+        <p class="lead text-center">Choose A School :</p>
+        <select class="form-control" [(ngModel)]="schools" (ngModelChange)="schoolsChange()" id="schools"> 
+          <option value="ain">ElSalam School</option>
+          <option value="cairo">Cambridge</option>
+          <option value="luxor">Luxor</option>
+        </select>
+      </ng-template>
+      <!-- End School -->
+
+      <!-- Department Select Box -->
+      <ng-template [ngIf]="departments">
+      <p class="lead text-center">Choose A Department :</p>        
+        <select class="form-control" [(ngModel)]="department" (ngModelChange)="departmentChange()" id="departments">
+          <option *ngFor="let item of departments" value="{{item}}">{{item}}</option>
+        </select>
+      </ng-template>
+
+      <!-- End Select Box -->
+
+      <!-- Quiz Select Box -->
+
+      <ng-template [ngIf]="quizes">
+      <p class="lead text-center">Choose A Quiz :</p>                
+        <select class="form-control" [(ngModel)]="quiz" (ngModelChange)="quizChange()" id="quizes">
+          <option *ngFor="let item of quizes" value="{{item}}">{{item}}</option>
+        </select>
+      </ng-template>
+      <!-- End Quiz Select Box -->
+
+      <!-- Form -->
+
+      <ng-template [ngIf]="formData || formDynamic">
+        <h3 class="text-center">Fill These Form Please : </h3>
+        <form class="form-group" (ngSubmit)="formSubmit()" [formGroup]="formData">
+          <ng-template ngFor let-item [ngForOf]="formDynamic">
+
+            <ng-template [ngIf]="item.type != 'submit'">
+              <input type="{{item.type}}" class="form-control"
+              placeholder="{{item.value}}" 
+              formControlName="{{item.value}}"
+              >
+              <div class="alert alert-danger" *ngIf="!formData.get(item.value).valid && formData.get(item.value).touched">
+                <ng-template [ngIf]="formData.get(item.value).errors.required">{{item.value}} Is Required</ng-template>
+              </div>
+            </ng-template>
+
+            <ng-template [ngIf]="item.type === 'submit'">
+              <input type="{{item.type}}" class="btn btn-success" value="{{item.value}}" 
+              [disabled]="!formData.valid">
+            </ng-template>
+            
+          </ng-template>
+        </form>
+
+      </ng-template>
+ 
+      <!-- End Form -->
+
+
+    </div>
+  </div>
+</div>

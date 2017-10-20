@@ -1,0 +1,11 @@
+input , select {
+    margin-bottom: 15px;
+
+}
+
+.start-game {
+    margin-left: 50%;
+    transform:translateX(-50%);
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
