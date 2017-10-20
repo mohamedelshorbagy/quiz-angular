@@ -20,17 +20,8 @@ export class AppComponent implements DoCheck{
   schoolClicked = false;
   constructor(private data:DataService) {}
 
-  startGame() {
-    this.schoolClicked = true;
-  }
-  schoolsChange() {
-    this.data.getDepartmentData().subscribe(res => {
-      this.departments = res;
-    });
 
-
-  }
-
+  /* LifeCycle Hooks */ 
   ngDoCheck() {
     if(this.formDynamic) {
         let email = this.formData.get('email');
@@ -44,19 +35,40 @@ export class AppComponent implements DoCheck{
           }
         })
     }
-}
-
-  departmentChange() {
+  }
 
 
-    this.data.getQuizesData().subscribe(res => {
-      this.quizes = res;
-    })
+  /* Start Function For Schools Button */
+  startGame() {
+    this.schoolClicked = true;
+  }
+  /* 
+    Functionality : When User Choose a School Then we make a fake request to get the data
+  */
+
+  schoolsChange() {
+    this.data.getDepartmentData().subscribe(res => {
+      this.departments = res;
+    });
 
   }
 
-  quizChange() {
+  /* 
+    Functionality : When User Choose a Department Then we make a fake request to get the data depend on his/her choice
+  */
 
+  departmentChange() {
+    this.data.getQuizesData().subscribe(res => {
+      this.quizes = res;
+    })
+  }
+
+  /* 
+    Functionality : When User Choose a Quiz Then we make a fake request to get the data depend on the quiz he made to get the dynamic Form
+  */
+
+
+  quizChange() {
     this.data.getFormData().subscribe(res => {
       this.formDynamic = res.form;
       let controls = {};
@@ -69,16 +81,19 @@ export class AppComponent implements DoCheck{
         let email = this.formData.get('email');
         let phone = this.formData.get('phone');
         phone.disable(email.touched);
-  })
-
-
+      
+    })
 }
 
 
 
 
   
+/*
 
+  Functionality : to output all user choices in the console 
+
+*/
   formSubmit() {
     this.all = {
       school:this.schools,
