@@ -1,5 +1,10 @@
 {
-  "departments":["Electrical" , "Civil" , "Mechanical"],
+  "departments":{
+
+    "ain":["Electrical" , "Civil" , "Mechanical"],
+    "cmb":["Mechatronics" , "Aerodynamics"],
+    "hav":["Computer","System Engineering" , "Machine Learning"]
+    },
   "quizes":["PST Phase" , "Interview Phase" , "Technical Phase"],
   "user": {
     "form": [{

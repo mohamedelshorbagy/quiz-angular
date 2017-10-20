@@ -27,6 +27,7 @@ export class AppComponent implements DoCheck{
         let email = this.formData.get('email');
         let phone = this.formData.get('phone');
 
+
         email.valueChanges.subscribe((value) => {
           if(!value) {
             phone.disable({emitEvent: false})
@@ -46,9 +47,10 @@ export class AppComponent implements DoCheck{
     Functionality : When User Choose a School Then we make a fake request to get the data
   */
 
-  schoolsChange() {
+  schoolsChange(value) {
     this.data.getDepartmentData().subscribe(res => {
-      this.departments = res;
+      this.departments = res[value];
+      
     });
 
   }

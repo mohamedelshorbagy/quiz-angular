@@ -9,3 +9,22 @@ input , select {
     margin-bottom: 15px;
     margin-top: 20px;
 }
+
+
+.col-xs-10 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    background: #FFF;
+    /* Another Styling For the Card Shadow */ 
+    /*box-shadow: 0 2px 2.5px 0 rgba(0 , 0 , 0 , 0.48) ,
+                0 0 0 1px rgba(0 , 0 , 0 , 0.08);*/
+    box-shadow: 0 0 20px 0 rgba(72 , 94 , 116 , 0.7);
+}
+
+
+input[type="submit"] {
+    margin-left: 50%;
+    transform: translateX(-50%);
+
+}
+

@@ -9,10 +9,10 @@
       <!-- School Select Box -->
       <ng-template [ngIf]="schoolClicked">
         <p class="lead text-center">Choose A School :</p>
-        <select class="form-control" [(ngModel)]="schools" (ngModelChange)="schoolsChange()" id="schools"> 
-          <option value="ain">ElSalam School</option>
-          <option value="cairo">Cambridge</option>
-          <option value="luxor">Luxor</option>
+        <select class="form-control" [(ngModel)]="schools" (ngModelChange)="schoolsChange(schools)" id="schools"> 
+          <option value="ain">Ain Shams School</option>
+          <option value="cmb">Cambridge School</option>
+          <option value="hav">Harvard School</option>
         </select>
       </ng-template>
       <!-- End School -->
